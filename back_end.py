@@ -25,6 +25,13 @@ def select_password():
     return pass_detail
 
 
+def delete_password(passcode):
+    con = sqlite3.connect("blocksite.db")
+    cur = con.cursor()
+    cur.execute("DELETE FROM password_details WHERE password=?",(passcode,))
+    con.commit()
+    con.close()
+
 
 def create_website_table():
     con = sqlite3.connect("blocksite.db")

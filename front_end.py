@@ -139,6 +139,24 @@ def refreshing():
         if mon==month_now and dat<date_now and year==year_now:
             removing_old_dates(i)
         
+
+
+def password_change():
+    try:
+        old_password = back_end.select_password()[0][0]
+        if e1.get() == old_password:
+            back_end.delete_password(old_password)
+            back_end.insert_password(e4.get())
+            
+            list1.delete(0,END)
+            list1.insert(END,("Password updated successfully"))
+        
+        else:
+            list1.delete(0,END)
+            list1.insert(END,("Please mention your old password correctly and try again"))
+            
+    except IndexError:
+        pass    
    
     
 window= Tk()
@@ -160,6 +178,9 @@ l4.grid(row= 1, column= 2)
 l5 = Label(window, text = "Created by Sriram",height=1,bg="grey")
 l5.grid(row= 8, column= 0)
 
+l6 = Label(window, text = "New Password")
+l6.grid(row= 0, column= 2)
+
 
 b1= Button(window, text = "Set Password",width= 12,command= add_password)
 b1.grid(row=3, column= 3)
@@ -176,8 +197,11 @@ b4.grid(row=6, column= 3)
 b5= Button(window, text = "Refresh",width= 12,command= refreshing)
 b5.grid(row=7, column= 3)
 
-b6= Button(window, text = "Close", command= window.destroy, width= 12)
+b6= Button(window, text = "Change Password", command= password_change, width= 13)
 b6.grid(row=8, column= 3)
+
+b7= Button(window, text = "Close", command= window.destroy, width= 12)
+b7.grid(row=9, column= 3)
 
 
 password_text = StringVar()
@@ -192,9 +216,13 @@ e2.grid(row=1, column= 1)
 e3 = DateEntry(window, width= 16,bd=2)
 e3.grid(row=1, column= 3)
 
+new_password_text = StringVar()
+e4= Entry(window, textvariable= new_password_text)
+e4.grid(row=0, column= 3)
 
-list1 = Listbox(window,height= 7,width= 36)
-list1.grid(row= 3,column= 0,rowspan= 9,columnspan= 2)
+
+list1 = Listbox(window,height= 8,width= 36)
+list1.grid(row= 3,column= 0,rowspan= 10,columnspan= 2)
 
 scroll = Scrollbar(window)
 scroll.grid(row= 4,column= 2, rowspan= 7)

@@ -20,6 +20,8 @@ Remove Website -- click view all. select the Website which you want to unblock f
 
 Refresh -- click the refresh button to unblock all the websites whose block dates have been expired.
 
+Change Password -- Enter your old password in the (Password box) and your new password in the (New Password box). Then click Change password button.
+
 Close -- close the app
 
 (note: Since this app makes changes in the hosts file, it needs to Run as administrator all the time. 
