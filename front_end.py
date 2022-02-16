@@ -176,7 +176,7 @@ l4 = Label(window, text = "Block Website till")
 l4.grid(row= 1, column= 2)
 
 l5 = Label(window, text = "Created by Sriram",height=1,bg="grey")
-l5.grid(row= 8, column= 0)
+l5.grid(row= 9, column= 0)
 
 l6 = Label(window, text = "New Password")
 l6.grid(row= 0, column= 2)
