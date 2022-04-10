@@ -27,7 +27,7 @@ def get_selected(event):
         e2.insert(END,selected_tuple[1])
         e3.delete(0,END)
         e3.insert(END,selected_tuple[2])
-    except IndexError:
+    except:
         pass
 
 
@@ -111,7 +111,7 @@ def removing_old_dates(i):
                     hostfile.write(line)
             hostfile.truncate()    
     
-    except IndexError:
+    except:
         pass
     
  
@@ -155,7 +155,7 @@ def password_change():
             list1.delete(0,END)
             list1.insert(END,("Please mention your old password correctly and try again"))
             
-    except IndexError:
+    except:
         pass    
    
     
