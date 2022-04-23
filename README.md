@@ -4,9 +4,11 @@ I have created a Website blocker GUI using Python Tkinter and SQLite.
 
 There are so many extensions in Chrome and other browsers to block websites but most of them are having limited access without paying a subscription. So I created a simple app to block and unblock websites.
 
-Basically, it will re-route the Websites which you need to block to a localhost IP address. This will be done in the below hosts file.
+Basically, it will re-route the Websites which you need to block to your localhost IP address. This will be done in the below hosts file.
 
 hosts_path = "C:\Windows\System32\drivers\etc\hosts"
+
+(note: incase after adding the desired websites in your blocklist, if it still not blocked then kindly delete your browser history and cache and then check it)
 
 The app having these functionalities
 
