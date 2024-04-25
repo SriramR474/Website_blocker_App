@@ -1,7 +1,6 @@
 import sqlite3
 from datetime import datetime
 
-
 def create_password_table():
     con = sqlite3.connect("blocksite.db")
     cur = con.cursor()
@@ -24,14 +23,12 @@ def select_password():
     con.close()
     return pass_detail
 
-
 def delete_password(passcode):
     con = sqlite3.connect("blocksite.db")
     cur = con.cursor()
     cur.execute("DELETE FROM password_details WHERE password=?",(passcode,))
     con.commit()
     con.close()
-
 
 def create_website_table():
     con = sqlite3.connect("blocksite.db")
@@ -62,8 +59,6 @@ def view():
     con.close()
     return rows
 
-
-
 def select_website_details():
     con = sqlite3.connect("blocksite.db")
     cur = con.cursor()
@@ -71,7 +66,6 @@ def select_website_details():
     web_detail = cur.fetchall()
     con.close()
     return web_detail
-
 
 def select_address_id(i):
     con = sqlite3.connect("blocksite.db")
@@ -81,7 +75,6 @@ def select_address_id(i):
     con.close()
     return details
 
-
 def date():
     con = sqlite3.connect("blocksite.db")
     cur = con.cursor()
@@ -90,7 +83,6 @@ def date():
     d = [dates[i][0] for i in range(len(dates))]
     con.close()
     return d
-
 
 
 create_website_table()

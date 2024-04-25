@@ -4,7 +4,6 @@ from datetime import datetime
 import back_end
 import re
 
-
 def add_password():
     if back_end.select_password() == []:
         back_end.insert_password(password_text.get())
@@ -14,8 +13,6 @@ def add_password():
     else:
         list1.delete(0,END)
         list1.insert(END,("A Password is already there"))
-
-            
 
 def get_selected(event):
    
@@ -30,8 +27,6 @@ def get_selected(event):
     except:
         pass
 
-
-
 def view_command():
     list1.delete(0,END)
     result = back_end.view()
@@ -39,11 +34,8 @@ def view_command():
         list1.insert(END, x)
 
 
-
 hosts_path = r"C:\Windows\System32\drivers\etc\hosts"
-
 redirect = "127.0.0.1"
-
 
 def add_command():
     back_end.insert(web_text.get(),e3.get())
@@ -64,8 +56,6 @@ def add_command():
             if site_to_block not in hosts_content:
                 hostfile.write(redirect + ' ' + site_to_block + '\n')
     
-       
-
 def delete_command():
     if back_end.select_password()!= []:
         
@@ -94,8 +84,6 @@ def delete_command():
                 hostfile.write(line)
         hostfile.truncate()    
     
-           
-
 def removing_old_dates(i):
     try:
         values = back_end.select_address_id(i)
@@ -114,9 +102,7 @@ def removing_old_dates(i):
     except:
         pass
     
- 
 def refreshing():
- 
     m = datetime.now().strftime("%m")
     d  = datetime.now().strftime("%d")
     y = datetime.now().strftime("%y")
@@ -139,8 +125,6 @@ def refreshing():
         if mon==month_now and dat<date_now and year==year_now:
             removing_old_dates(i)
         
-
-
 def password_change():
     try:
         old_password = back_end.select_password()[0][0]
@@ -157,8 +141,7 @@ def password_change():
             
     except:
         pass    
-   
-    
+     
 window= Tk()
 
 window.wm_title("Website_blocker")
@@ -181,7 +164,6 @@ l5.grid(row= 9, column= 0)
 l6 = Label(window, text = "New Password")
 l6.grid(row= 0, column= 2)
 
-
 b1= Button(window, text = "Set Password",width= 12,command= add_password)
 b1.grid(row=3, column= 3)
 
@@ -203,7 +185,6 @@ b6.grid(row=8, column= 3)
 b7= Button(window, text = "Close", command= window.destroy, width= 12)
 b7.grid(row=9, column= 3)
 
-
 password_text = StringVar()
 e1= Entry(window, textvariable= password_text)
 e1.grid(row=0, column= 1)
@@ -212,14 +193,12 @@ web_text = StringVar()
 e2= Entry(window, textvariable= web_text)
 e2.grid(row=1, column= 1)
 
-
 e3 = DateEntry(window, width= 16,bd=2)
 e3.grid(row=1, column= 3)
 
 new_password_text = StringVar()
 e4= Entry(window, textvariable= new_password_text)
 e4.grid(row=0, column= 3)
-
 
 list1 = Listbox(window,height= 8,width= 36)
 list1.grid(row= 3,column= 0,rowspan= 10,columnspan= 2)
@@ -232,6 +211,4 @@ scroll.configure(command= list1.yview)
 
 list1.bind('<<ListboxSelect>>',get_selected) 
                                             
-
-
 window.mainloop()
