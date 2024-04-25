@@ -14,8 +14,7 @@ def add_password():
         list1.delete(0,END)
         list1.insert(END,("A Password is already there"))
 
-def get_selected(event):
-   
+def get_selected(event): 
     try:                     
         global selected_tuple                      
         index= list1.curselection()[0] # the curselection method will fetch the index of selected row from Listbox.
@@ -42,7 +41,6 @@ def add_command():
     list1.delete(0,END)
     list1.insert(END,(web_text.get(),e3.get()))
        
-    
     webdate_values = back_end.select_website_details()
     ans = webdate_values.pop(-1)
 
@@ -57,8 +55,7 @@ def add_command():
                 hostfile.write(redirect + ' ' + site_to_block + '\n')
     
 def delete_command():
-    if back_end.select_password()!= []:
-        
+    if back_end.select_password()!= []:   
         if password_text.get() == back_end.select_password()[0][0]:
             back_end.delete(selected_tuple[0])
             list1.delete(0,END)
@@ -97,8 +94,7 @@ def removing_old_dates(i):
             for line in lines:
                 if site_to_unblock not in line:
                     hostfile.write(line)
-            hostfile.truncate()    
-    
+            hostfile.truncate()       
     except:
         pass
     
@@ -137,8 +133,7 @@ def password_change():
         
         else:
             list1.delete(0,END)
-            list1.insert(END,("Please mention your old password correctly and try again"))
-            
+            list1.insert(END,("Please mention your old password correctly and try again"))           
     except:
         pass    
      

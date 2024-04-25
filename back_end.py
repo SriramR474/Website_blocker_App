@@ -84,6 +84,5 @@ def date():
     con.close()
     return d
 
-
 create_website_table()
 create_password_table()
